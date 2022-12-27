@@ -1,7 +1,20 @@
 
 // G
 // CODE According to specification
+
+
+
 function click_filter_element(event) {
+
+    if (event.target.className === "filter_container") {
+        event.target.classList.add("selected")
+        event.target.classList.remove("filter_container")
+    } else {
+        event.target.classList.add("filter_container")
+        event.target.classList.remove("selected")
+    }
+
+
 
     /*
       ARGUMENTS
