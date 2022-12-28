@@ -10,8 +10,8 @@ function click_filter_element(event) {
         event.target.classList.add("selected")
         event.target.classList.remove("filter_container")
     } else {
-        event.target.classList.add("filter_container")
         event.target.classList.remove("selected")
+        event.target.classList.add("filter_container")
     }
 
 
@@ -38,6 +38,18 @@ function click_filter_element(event) {
 // G
 // CODE according to specification
 function create_filter_element(data) {
+
+
+    let new_element = document.createElement("li")
+    new_element.classList.add(data.class)
+    new_element.textContent = data.textContent
+    data.parent.append(new_element)
+
+    new_element.addEventListener("click", click_filter_element)
+
+
+    return new_element
+
 
     /*
       ARGUMENTS
@@ -109,7 +121,34 @@ function toggle_cities(event) {
 // ATTENTION: You need to write the specification of all three functions:
 //            create_countries_cities_filters, create_country and create_city
 function create_countries_cities_filters() {
+    /*
+    ARGUMENTS
+   This function does not take any arguments.
+
+    SIDE EFFECTS
+    This function uses the function array_each to go through the array (COUNTRIES) 
+    and for every object in the array it uses the function create_country.
+     */
+
+
     function create_country(country) {
+        /*
+        ARGUMENTS
+        country: an object from the array (COUNTRIES) that contains the following keys
+        id, name of the country and imagesNormal. 
+
+        SIDE EFFECTS
+        This function creates "div" elements adds the classes ("country") & ("filter_container"),
+        creates specific id`s for every "div" using the argument to get each country id, 
+        refering to the HTML-element "#country_filter>ul" to append the variable. 
+
+        Creates the HTML-elements <h1> and writing each specific country name using the argument to access 
+        the key "name". Creates another HTML-element <ul> then adds the class "filter_list" to it,
+        
+        Then uses the function array_filter to go through the array (CITIES), and for each object in the array 
+        uses the function test_function to test if the value of the key "countryID" in the array (CITIES) and the key 
+        "id" from the objects in the array (COUNTRIES) is the same.
+        */
         const dom = document.createElement("div");
         dom.classList.add("country");
         dom.classList.add("filter_container");
@@ -129,6 +168,19 @@ function create_countries_cities_filters() {
         array_each(cities, create_city);
     }
     function create_city(city) {
+        /*
+        ARGUMENTS
+        city: an object from the array (CITIES) that contains the following keys
+        id, name, countryID, sun and imagesNormal
+
+        SIDE EFFECTS
+        This function calls on the function create_filter_element with an object as argument
+        with the keys "parent" which is a reference to the id´s of each of the countrys id´s. 
+        the key "class" contains the class "selected" and the last key "textContent" which 
+        contains the city name. 
+
+        gives the variable which contains the function create_filter_element the same id as city id.
+        */
 
         const dom = create_filter_element({
             parent: document.querySelector(`#country_${city.countryID} > ul`),
@@ -147,41 +199,36 @@ function create_countries_cities_filters() {
 // ABSTRACT AND WRITE SPECIFICATION
 //    As you can see, all three functions below do basically the same thing.
 //    Abstract them to one function, and write the specification of that function.
-function create_levels_filter() {
-    function create_level(level) {
+function create_information_filter(array, filter_name) {
+    /*
+    ARGUMENTS
+    array: takes an array and a filter name 
+
+    SIDE EFFECTS
+    Calls on the function array_each and array_each uses the function create_info.  
+        */
+
+    function create_info(filter) {
+        /*
+        ARGUMENTS
+        filter: contains an objects information 
+
+        SIDE EFFECTS
+        creates a new variable which contains the function create_filter_element 
+        then gives an id to the new variable using the argument. 
+
+        */
         const dom = create_filter_element({
-            parent: document.querySelector("#level_filter > ul"),
+            parent: document.querySelector(`#${filter_name}_filter >ul`),
             class: "selected",
-            textContent: level.name,
-        });
-        dom.dataset.id = level.id;
+            textContent: filter.name
+        })
+        dom.dataset.id = filter.id
     }
-    array_each(LEVELS, create_level);
+    array_each(array, create_info)
+
 }
-// Create Subjects Filter
-function create_subjects_filter() {
-    function create_subject(subject) {
-        const dom = create_filter_element({
-            parent: document.querySelector("#subject_filter > ul"),
-            class: "selected",
-            textContent: subject.name,
-        });
-        dom.dataset.id = subject.id;
-    }
-    array_each(SUBJECTS, create_subject);
-}
-// Create Search Field
-function create_language_filter() {
-    function create_element(data) {
-        const dom = create_filter_element({
-            parent: document.querySelector("#language_filter > ul"),
-            class: "selected",
-            textContent: data.name,
-        });
-        dom.dataset.id = data.id;
-    }
-    array_each(LANGUAGES, create_element);
-}
+
 
 
 // G / VG (see details in specification)
