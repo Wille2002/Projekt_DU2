@@ -236,21 +236,22 @@ function create_information_filter(array, filter_name) {
 
 function create_programme(programme) {
 
+
+
     let parent = document.querySelector("#programmes>ul")
     let divs = document.createElement("div")
     divs.classList.add("programme")
 
-    divs.innerHTML = `<h3>${programme.name}
-    <br>
-    ${UNIVERSITIES[1].name}
-    <br>
-    ${programme.subjectID}
-    <br>
-    ${programme.languageID}
-    <br>
-    ${programme.levelID}
-    </h3>
-    `
+    divs.innerHTML = `<div><h3>${programme.name}</h3>
+        ${UNIVERSITIES[programme.universityID].name}
+        <br>
+        ${CITIES[UNIVERSITIES[programme.universityID].cityID].name}, 
+        ${COUNTRIES[CITIES[UNIVERSITIES[programme.universityID].cityID].countryID].name}
+        <br>
+        ${LEVELS[programme.levelID - 1].name}, ${SUBJECTS[programme.subjectID].name}, ${LANGUAGES[programme.languageID].name}
+        </div >
+    <div class="bottom_programme">${CITIES[UNIVERSITIES[programme.universityID].cityID].name}, sun-index: ${CITIES[UNIVERSITIES[programme.universityID].cityID].sun}</div>
+`
     parent.append(divs)
 
 
