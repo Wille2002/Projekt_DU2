@@ -233,13 +233,32 @@ function create_information_filter(array, filter_name) {
 
 // G / VG (see details in specification)
 // CODE according to specifications
+
 function create_programme(programme) {
 
+    let parent = document.querySelector("#programmes>ul")
+    let divs = document.createElement("div")
+    divs.classList.add("programme")
+
+    divs.innerHTML = `<h3>${programme.name}
+    <br>
+    ${UNIVERSITIES[1].name}
+    <br>
+    ${programme.subjectID}
+    <br>
+    ${programme.languageID}
+    <br>
+    ${programme.levelID}
+    </h3>
+    `
+    parent.append(divs)
+
+
     /*
-  
+     
       ARGUMENT
         programme (object): One of the objects from PROGRAMMES
-  
+     
       SIDE-EFFECTS
         This function creates the HTML-element that contains all the information
         about one programme, as seen in the video / image.
@@ -247,16 +266,22 @@ function create_programme(programme) {
         VG: The background image is a random image from among the images of the city
             in which the programme is (via the university)
         G:  No background image required.
-  
-  
+     
+     
         VG: The "see more" interaction must be included.
         G:  The "see more" element is not required. And that information needs not be in place.
-  
+     
       NO RETURN VALUE
-  
+     
     */
-
 }
+array_filter(PROGRAMMES, create_programme)
+
+
+
+
+
+
 
 
 // G
