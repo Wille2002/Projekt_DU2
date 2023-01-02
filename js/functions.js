@@ -289,6 +289,21 @@ array_filter(PROGRAMMES, create_programme)
 // CODE according to the specification
 function update_programmes() {
 
+    addEventListener("click", update_programmes)
+
+    let filters = read_filters(programmes);
+
+    let program = document.querySelector("#programmes>ul")
+    program.innerHTML = ""
+    array_each(filters, create_programme)
+
+
+
+
+
+
+
+
     /*
         NO ARGUMENTS
   
@@ -304,6 +319,7 @@ function update_programmes() {
     */
 
 }
+
 
 
 // G
@@ -407,4 +423,5 @@ function read_filters() {
     }
 
     return programmes;
+
 }
