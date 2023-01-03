@@ -18,11 +18,11 @@
 
 @font-face {
     font-family: 'Roboto Condensed 400';
-    src: url('../fonts/RobotoCondensed_regular/RobotoCondensedRegular.eot');
-    src: url('../fonts/RobotoCondensed_regular/RobotoCondensedRegular.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/RobotoCondensed_regular/RobotoCondensedRegular.woff2') format('woff2'),
-        url('../fonts/RobotoCondensed_regular/RobotoCondensedRegular.woff') format('woff'),
-        url('../fonts/RobotoCondensed_regular/RobotoCondensedRegular.ttf') format('truetype');
+    src: url('./fonts/RobotoCondensed_regular/RobotoCondensedRegular.eot');
+    src: url('./fonts/RobotoCondensed_regular/RobotoCondensedRegular.eot?#iefix') format('embedded-opentype'),
+        url('./fonts/RobotoCondensed_regular/RobotoCondensedRegular.woff2') format('woff2'),
+        url('./fonts/RobotoCondensed_regular/RobotoCondensedRegular.woff') format('woff'),
+        url('./fonts/RobotoCondensed_regular/RobotoCondensedRegular.ttf') format('truetype');
 }
 
 :root {
@@ -72,7 +72,7 @@ body {}
 }
 
 #top_images>div:nth-child(1) {
-    background-image: url("geo_images/argentina_normal_1.jpg");
+    background-image: url("geo_images/lund_normal_1.jpg");
 }
 
 #top_images>div:nth-child(2) {

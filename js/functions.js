@@ -327,6 +327,45 @@ function update_programmes() {
 // You must understand how this function works. There will be questions about it
 // in the code review (kodredovisning)
 
+/*
+ARGUMENT
+This function takes no arguments.
+
+SIDE EFFECTS
+
+This function creates a variable with all of the "li.selected" classes it can find. It then 
+creates a new array, then it declares a function called Callback_add_cityID with one argument. It then uses the
+new array to push in the id`s of li.selected. The code uses array_each to iterate though all of the cities in the 
+li.selected elements with the function callback_add_cityID. 
+The function then uses a for loop to go through the array city_id_selected, it then creates a new variable
+that goes though every city in the in the array and creates a new array of universities that are located there using
+a key from the array UNIVERSITIES. It then iterates though each university adding them to the array of univercitys if 
+they have the same id as the cityID.
+
+A new function is then declared called callback_add_programmes with one argument. it uses a for loop to go though 
+all of the objects in the array PROGRAMMES to create an array of all the programs offered by the univercitys. 
+If the univercityID in the array PROGRAMMES matches the id of a univercity it takes the programme and puts it in the programmes array. 
+Then it calls on the function using array each to iterate thought the univercities.
+
+The function callback_add_levelID works just the same as the callback_add_cityID function but instead of taking 
+city id´s it takes level id´s. 
+
+The function Test_function_level has one argument. It iterates though each of the objects in the array programmes 
+with Test_function_level, and if level_id_selected, which is an array containing the level id`s includes levelID 
+found in the programmes array it returns it and puts it in the programmes array.
+
+Next we have the callback_add_languageID and the callback_add_subjectID that does the same thing as callback_add_cityID.
+but with language and subject
+
+The last bit of code iterates though the array that contains information of all of the arrays (programmes) and filters
+out those that dont have a specific value with the function called test_funtion that has one argument. 
+
+lastley read_filters returns the programmes array. 
+
+
+*/
+
+
 // Optional VG: Which parts of the function's code could be abstracted?
 //              Implement it
 function read_filters() {
