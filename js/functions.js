@@ -1,6 +1,4 @@
 
-// G
-// CODE According to specification
 
 
 
@@ -25,8 +23,6 @@ function click_filter_element(event) {
         Since a filter element will have changed after the click, the list of
         programmes must be updated.
   
-        Attention VG
-          Careful with the propagation of the click-event
   
       NO RETURN VALUE
   
@@ -35,8 +31,7 @@ function click_filter_element(event) {
 }
 
 
-// G
-// CODE according to specification
+
 function create_filter_element(data) {
 
 
@@ -74,8 +69,7 @@ function create_filter_element(data) {
 }
 
 
-// VG
-// CODE according to specification
+
 function add_group_toggling(filter_container_dom) {
 
     /*
@@ -96,8 +90,6 @@ function add_group_toggling(filter_container_dom) {
 }
 
 
-// VG
-// CODE according to specifications
 function toggle_cities(event) {
 
     /*
@@ -117,9 +109,7 @@ function toggle_cities(event) {
 }
 
 
-// WRITE SPECIFICATION
-// ATTENTION: You need to write the specification of all three functions:
-//            create_countries_cities_filters, create_country and create_city
+
 function create_countries_cities_filters() {
     /*
     ARGUMENTS
@@ -195,10 +185,8 @@ function create_countries_cities_filters() {
 }
 
 
-// G
-// ABSTRACT AND WRITE SPECIFICATION
-//    As you can see, all three functions below do basically the same thing.
-//    Abstract them to one function, and write the specification of that function.
+
+
 function create_information_filter(array, filter_name) {
     /*
     ARGUMENTS
@@ -231,8 +219,7 @@ function create_information_filter(array, filter_name) {
 
 
 
-// G / VG (see details in specification)
-// CODE according to specifications
+
 
 function create_programme(programme) {
 
@@ -264,13 +251,6 @@ function create_programme(programme) {
         This function creates the HTML-element that contains all the information
         about one programme, as seen in the video / image.
         
-        VG: The background image is a random image from among the images of the city
-            in which the programme is (via the university)
-        G:  No background image required.
-     
-     
-        VG: The "see more" interaction must be included.
-        G:  The "see more" element is not required. And that information needs not be in place.
      
       NO RETURN VALUE
      
@@ -285,8 +265,7 @@ array_filter(PROGRAMMES, create_programme)
 
 
 
-// G
-// CODE according to the specification
+
 function update_programmes() {
 
     addEventListener("click", update_programmes)
@@ -295,6 +274,13 @@ function update_programmes() {
 
     let program = document.querySelector("#programmes>ul")
     program.innerHTML = ""
+    let p = document.querySelector("#programmes>p")
+    if (filters.length >= 1) {
+        p.innerHTML = ""
+    } else {
+        p.innerHTML = `<p>Inga program upfyller nuvarande filter.</p>`
+    }
+
     array_each(filters, create_programme)
 
 
@@ -312,7 +298,7 @@ function update_programmes() {
           the current filter status (which filter elements are selected / unselected).
           It uses the function read_filters to know which programmes need to be included.
   
-          VG: The top images (header) need to be updated here
+          
   
         NO RETURN VALUE
   
@@ -322,10 +308,6 @@ function update_programmes() {
 
 
 
-// G
-// WRITE SPECIFICATION
-// You must understand how this function works. There will be questions about it
-// in the code review (kodredovisning)
 
 /*
 ARGUMENT
@@ -366,8 +348,7 @@ lastley read_filters returns the programmes array.
 */
 
 
-// Optional VG: Which parts of the function's code could be abstracted?
-//              Implement it
+
 function read_filters() {
 
     const city_selected_dom = document.querySelectorAll("#country_filter li.selected");

@@ -1,28 +1,6 @@
 
 
-/*
 
-Nedan finns databasen.
-
-Notera att nycklarna i objekten har skrivits med citationstecken. Det går också bra.
-
-
-OBS 1
-Innehållet i databasen är skapad programmatiskt och kan innehålla gramatiska
-fel i namnen och lite annat konstigt. Exempel:
-a) "Derecho Aplicadas" är grammatiskt fel på spanska.
-b) Toulouse kan ha fler universitet än Paris, som ju är en mycket större stad.
-   Konstigheter som dessa behöver du inte bry er om.
-
-Om du dock hittar data som verkligen inte alls fungerar så får du hemskt gärna
-höra av dig till oss så ska vi kolla på det. Ett exempel på data som inte fungerar
-skulle kunna vara negativa värden av antalet studenter i ett program.
-
-OBS 2
-Det finns nyckar i objekten i PROGRAMMES som inte används i detta projekt.
-De kan ignoreras.
-
-*/
 
 const COUNTRIES = [
     {

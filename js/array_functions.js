@@ -35,7 +35,6 @@ function array_each(array, callback) {
 
 
 
-// The functions below ONLY USEFUL FOR VG
 
 function array_average(array) {
     // Returns the average of all the values in array
